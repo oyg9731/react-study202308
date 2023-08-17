@@ -9,7 +9,7 @@ const App = () => {
     {
       id: 1,
       title: '바나나',
-      price: 2000,
+      price: 20000,
       date: new Date(2023, 3 - 1, 23),
     },
     {
@@ -38,7 +38,6 @@ const App = () => {
   // ExpenseForm에게 내려보낼 함수
   const addExpenseHandler = (newExpense) => {
     console.log(newExpense);
-    
     setExpenseList([...expenseList, newExpense]);
   };
 
