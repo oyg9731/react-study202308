@@ -1,11 +1,10 @@
 import React from 'react';
-import './Card.css';
+import styles from './Card.module.css';
 
 const Card = ({ children, className }) => {
-    const madClass = 'card ' + className; 
-  return <div className={madClass}>
-    {children}
-  </div>;
+    return (
+        <div className={`${styles.card} ${className}`}>{children}</div>
+    );
 };
 
 export default Card;
