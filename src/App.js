@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import MainHeader from './components/SidEffect/MainHeader/MainHeader'
 import Home from './components/SidEffect/Home/Home'
 import Login from './components/SidEffect/Login/Login'
+// 컨텍스트 불러오기
+import AuthContext from './store/auth-context'
 
 const App = () => {
 
@@ -36,13 +38,15 @@ const App = () => {
   };
 
   return (
-    <>
-      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHndler} />
+    <AuthContext.Provider value={{
+      isLoggedIn: isLoggedIn
+    }}>
+      <MainHeader onLogout={logoutHndler} />
       <main>
         {isLoggedIn && <Home />}
         {!isLoggedIn && <Login onLogin={loginHandler} />}
       </main>
-    </>
+    </AuthContext.Provider>
   );
 };
 
